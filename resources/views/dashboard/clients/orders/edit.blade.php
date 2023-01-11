@@ -1,0 +1,32 @@
+@extends('layouts.dashboard.app')
+
+@section('content')
+
+    @include('partials.errors')
+    <div class="card card-warning">
+              <div class="card-header">
+                <h1 class="mx-auto">Edit Categorie's Data</h2>
+              </div>
+              <!-- /.card-header -->
+
+              <!-- form start -->
+              <form action="{{route('dashboard.categories.update',$category->id)}}" method="post">
+
+                @csrf
+                @method('put')
+                <div class="card-body">
+                    <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name" value="{{$category->name}}">
+                  </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-edit"></i> Edit</button>
+                </div>
+              </form>
+            </div>
+
+@endsection
